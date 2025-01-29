@@ -21,7 +21,6 @@ class ExcelSorter:
         self.file_path = filedialog.askopenfilename(filetypes=[("Excel files", "*.xlsx;*.xls")])
         if self.file_path:
             self.df = pd.read_excel(self.file_path)
-            self.df = self.df.loc[:, ~self.df.columns.str.contains('^Unnamed')]  
             self.sort_order = {col: True for col in self.df.columns}  
             self.display_table()
 
